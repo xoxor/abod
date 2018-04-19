@@ -1,0 +1,6 @@
+nasm -f elf64 normdiff_aps.nasm
+nasm -f elf64 prodmat_Dunrollaps.nasm
+nasm -f elf64 prodmat_Dunrollaps_lb.nasm
+nasm -f elf64 distances.nasm
+gcc -O0 -m64 -mavx prodmat_Dunrollaps.o prodmat_Dunrollaps_lb.o normdiff_aps.o distances.o abod64c.c -o abod64c -lm
+./abod64c_9 $1 $2 $3 $4 $5 $6 $7 $8 $9 $10

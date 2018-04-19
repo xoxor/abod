@@ -1,0 +1,6 @@
+nasm -f elf32 prodmat_Dunrollaps.nasm
+nasm -f elf32 prodmat_Dunrollaps_lb.nasm
+nasm -f elf32 normdiff_aps.nasm
+nasm -f elf32 distances.nasm
+gcc -O0 -m32 -fopenmp -msse prodmat_Dunrollaps.o prodmat_Dunrollaps_lb.o distances.o normdiff_aps.o abod32c.c -o abod32c -lm
+./abod32c_9 $1 $2 $3 $4 $5 $6 $7 $8 $9 $10
